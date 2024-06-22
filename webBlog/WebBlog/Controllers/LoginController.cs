@@ -28,7 +28,7 @@ namespace WebBlog.Controllers
             {
                 return BadRequest("用户名和密码不能为空");
             }
-            if(login.userName == "admin" && login.password == "123456")
+            if(login.userName == "admin" && login.password == "1234567")
             {
                 // 在这里添加验证用户名和密码的逻辑，例如查询数据库等
                 // 如果验证成功，返回成功信息；如果验证失败，返回错误信息
