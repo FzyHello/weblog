@@ -1,115 +1,92 @@
 <template>
-  <div class="login-container">
-    <h2>Login</h2>
-    <form @submit.prevent="handleSubmit">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="username" required />
+  <div class="login">
+    <div class="login-box">
+      <el-form ref="loginForm" :model="userInfo" label-width="auto">
+        <el-form>
+          <h2>Login</h2>
+        </el-form>
+        <el-form-item prop="username">
+          <el-input
+            v-model="userInfo.username"
+            placeholder="账号"
+            prefix-icon="Avatar"
+          />
+        </el-form-item>
+        <el-form-item prop="password">
+          <el-input
+            type="password"
+            placeholder="密码"
+            v-model="userInfo.password"
+            prefix-icon="Key"
+          />
+        </el-form-item>
+        <el-form-item>
+          <div class="login-btn">
+            <el-button type="primary" @click="loginSubmit()">登录</el-button>
+          </div>
+        </el-form-item>
+      </el-form>
+      <div class="login-box-register">
+        <el-link type="info" :underline="false">注册账号</el-link>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="password" required />
-      </div>
-      <button type="submit">Login</button>
-    </form>
-    <p v-if="loginError" class="error-message">{{ loginError }}</p>
+    </div>
   </div>
 </template>
-  
-  <script>
-import { ref } from "vue";
+
+<script setup name="LoginBox">
+import { ref, reactive } from "vue";
 import axios from "axios";
 
-export default {
-  name: "LoginPage",
-  setup() {
-    const username = ref("");
-    const password = ref("");
-    const loginError = ref("");
+let userInfo = reactive({
+  username: "",
+  password: "",
+});
 
-    const loginData = {
-      userName: "admin",
-      password: "123456",
-    };
-
-    async function handleSubmit() {
-      try {
-        // 发起请求qq
-        const response = await axios.post(
-          "http://localhost:5214/Login",loginData
-        ); // 替换为你的后端接口地址
-
-        // 处理响应
-        console.log(response.data); // 这里假设后端返回的数据是一个 JSON 对象
-
-        // 可以在这里进行进一步的处理，比如根据响应来更新页面状态或者跳转到下一个页面等
-      } catch (error) {
-        // 处理错误
-        console.error("Error fetching data: ", error);
-        // 可以根据错误情况做出相应的处理，比如显示错误信息给用户q
-      }
-    }
-
-    return {
-      username,
-      password,
-      loginError,
-      handleSubmit,
-    };
-  },
-};
+function loginSubmit() {
+  axios.post("http://localhost:5214/Login", userInfo).then((res) => {
+    console.log(res.data);
+  });
+}
 </script>
-  
-  <style scoped>
-.login-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}
 
-h2 {
-  text-align: center;
-}
-
-.form-group {
-  margin-bottom: 10px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="password"] {
+<style lang="scss" scoped>
+::v-deep .login-btn > .el-button {
   width: 100%;
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
 }
-
-button {
+::v-deep .login-box-register > .el-link {
+  color: #dfdddd;
+}
+.login {
+  height: 100vh;
   width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-.error-message {
-  color: red;
-  text-align: center;
-  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("@/assets/img/login-Bg.jpg");
+  background-size: cover;
+  background-position: center;
+  &-box {
+    width: 450px;
+    height: 300px;
+    margin: 20px 20px 20px 10px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(10px) brightness(90%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    &-register {
+      width: 100%;
+      text-align: left;
+    }
+  }
+  &-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>
