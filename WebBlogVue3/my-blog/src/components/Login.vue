@@ -35,7 +35,7 @@
 
 <script setup name="LoginBox">
 import { ref, reactive } from "vue";
-import axios from "axios";
+import { Post } from "@/service/baseService.ts";
 
 let userInfo = reactive({
   username: "",
@@ -43,7 +43,8 @@ let userInfo = reactive({
 });
 
 function loginSubmit() {
-  axios.post("http://localhost:5214/Login", userInfo).then((res) => {
+  // 账号 admin 密码 123456
+  Post("http://localhost:5214/Login", userInfo).then((res) => {
     console.log(res.data);
   });
 }
