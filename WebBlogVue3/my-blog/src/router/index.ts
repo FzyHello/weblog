@@ -10,6 +10,10 @@ const routes = [
     component: () => import('@/components/Login.vue'),
     key: 'login'
   },
+  {
+    path: '/Blog',
+    component: () => import('@/components/Blog.vue'),
+  }
 ];
 
 const router = createRouter({

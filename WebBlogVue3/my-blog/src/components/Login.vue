@@ -36,6 +36,9 @@
 <script setup name="LoginBox">
 import { ref, reactive } from "vue";
 import { Post } from "@/service/baseService.ts";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 let userInfo = reactive({
   username: "",
@@ -44,9 +47,10 @@ let userInfo = reactive({
 
 function loginSubmit() {
   // 账号 admin 密码 123456
-  Post("http://localhost:5214/Login", userInfo).then((res) => {
-    console.log(res.data);
-  });
+  // Post("http://localhost:5214/Login", userInfo).then((res) => {
+  //   console.log(res.data);
+  // });
+  router.push("/Blog");
 }
 </script>
 
