@@ -1,16 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
 
-namespace WebBlog.Model
+namespace ModelEFCore
 {
-
     public class Account
     {
         /// <summary>
         /// 用户唯一标识符
         /// </summary>
         [Key]
-        public string? uuid { get; set; }
+        public string? Uuid { get; set; }
 
         /// <summary>
         /// 登录账号
@@ -20,7 +18,7 @@ namespace WebBlog.Model
         /// <summary>
         /// 用户名
         /// </summary>
-        public string? UserName { get; set; }
+        public string? User_Name { get; set; }
 
         /// <summary>
         /// 用户密码
@@ -35,26 +33,26 @@ namespace WebBlog.Model
         /// <summary>
         /// 最近一次登录时间
         /// </summary>
-        public DateTime? LastLoginTime { get; set; }
+        public DateTime? Last_LoginTime { get; set; }
 
         /// <summary>
         /// 创建时间
         /// </summary>
-        public DateTime CreateTime { get; set; }
+        public DateTime? Create_Time { get; set; }
 
         /// <summary>
         /// 删除时间
         /// </summary>
-        public DateTime? DeleteTime { get; set; }
+        public DateTime? Delete_Time { get; set; }
 
         /// <summary>
         /// 是否有效（0:有效 1:可正常登录）
         /// </summary>
-        public bool IsDeleted { get; set; }
+        public bool Is_Deleted { get; set; }
 
         /// <summary>
         /// 备注信息
         /// </summary>
-        public string Remark { get; set; }
+        public string? Remark { get; set; }
     }
 }

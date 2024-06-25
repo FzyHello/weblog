@@ -8,11 +8,21 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "login",
-        "Type": "WebBlog.Controllers.LoginController\u002BLoginModel",
+        "Name": "account",
+        "Type": "ModelEFCore.Account",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "ModelEFCore.Account",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

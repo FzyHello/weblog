@@ -7,20 +7,43 @@
       "RelativeMoniker": "D:0:0:{F811ECCC-393C-4980-9F83-579074FE1613}|WebBlog\\WebBlog.csproj|solutionrelative:webblog\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F811ECCC-393C-4980-9F83-579074FE1613}|WebBlog\\WebBlog.csproj|c:\\users\\13762\\desktop\\blogproject\\webblog\\webblog\\webblog.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{F811ECCC-393C-4980-9F83-579074FE1613}|WebBlog\\WebBlog.csproj|solutionrelative:webblog\\webblog.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F811ECCC-393C-4980-9F83-579074FE1613}|WebBlog\\WebBlog.csproj|c:\\users\\13762\\desktop\\blogproject\\webblog\\webblog\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F811ECCC-393C-4980-9F83-579074FE1613}|WebBlog\\WebBlog.csproj|solutionrelative:webblog\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F811ECCC-393C-4980-9F83-579074FE1613}|WebBlog\\WebBlog.csproj|c:\\users\\13762\\desktop\\blogproject\\webblog\\webblog\\model\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F811ECCC-393C-4980-9F83-579074FE1613}|WebBlog\\WebBlog.csproj|solutionrelative:webblog\\model\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F811ECCC-393C-4980-9F83-579074FE1613}|WebBlog\\WebBlog.csproj|c:\\users\\13762\\desktop\\blogproject\\webblog\\webblog\\webblog.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F811ECCC-393C-4980-9F83-579074FE1613}|WebBlog\\WebBlog.csproj|solutionrelative:webblog\\webblog.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F811ECCC-393C-4980-9F83-579074FE1613}|WebBlog\\WebBlog.csproj|c:\\users\\13762\\desktop\\blogproject\\webblog\\webblog\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{F811ECCC-393C-4980-9F83-579074FE1613}|WebBlog\\WebBlog.csproj|solutionrelative:webblog\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13ACC3AA-7776-4FE6-8124-095D3FB90E3D}|BlogHelper\\BlogHelper.csproj|c:\\users\\13762\\desktop\\blogproject\\webblog\\bloghelper\\generatetoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13ACC3AA-7776-4FE6-8124-095D3FB90E3D}|BlogHelper\\BlogHelper.csproj|solutionrelative:bloghelper\\generatetoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D842948-37F6-40D1-A5A2-A02B4BF64418}|ModelEFCore\\ModelEFCore.csproj|c:\\users\\13762\\desktop\\blogproject\\webblog\\modelefcore\\accountconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D842948-37F6-40D1-A5A2-A02B4BF64418}|ModelEFCore\\ModelEFCore.csproj|solutionrelative:modelefcore\\accountconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D842948-37F6-40D1-A5A2-A02B4BF64418}|ModelEFCore\\ModelEFCore.csproj|c:\\users\\13762\\desktop\\blogproject\\webblog\\modelefcore\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D842948-37F6-40D1-A5A2-A02B4BF64418}|ModelEFCore\\ModelEFCore.csproj|solutionrelative:modelefcore\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D842948-37F6-40D1-A5A2-A02B4BF64418}|ModelEFCore\\ModelEFCore.csproj|c:\\users\\13762\\desktop\\blogproject\\webblog\\modelefcore\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D842948-37F6-40D1-A5A2-A02B4BF64418}|ModelEFCore\\ModelEFCore.csproj|solutionrelative:modelefcore\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D842948-37F6-40D1-A5A2-A02B4BF64418}|ModelEFCore\\ModelEFCore.csproj|c:\\users\\13762\\desktop\\blogproject\\webblog\\modelefcore\\modelefcore.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5D842948-37F6-40D1-A5A2-A02B4BF64418}|ModelEFCore\\ModelEFCore.csproj|solutionrelative:modelefcore\\modelefcore.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F811ECCC-393C-4980-9F83-579074FE1613}|WebBlog\\WebBlog.csproj|c:\\users\\13762\\desktop\\blogproject\\webblog\\webblog\\webblog.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{F811ECCC-393C-4980-9F83-579074FE1613}|WebBlog\\WebBlog.csproj|solutionrelative:webblog\\webblog.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\13762\\AppData\\Roaming\\Microsoft\\UserSecrets\\4178bbf4-daba-4ec6-a411-5bea66c94a43\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,43 +53,124 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "GenerateToken.cs",
+              "DocumentMoniker": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\BlogHelper\\GenerateToken.cs",
+              "RelativeDocumentMoniker": "BlogHelper\\GenerateToken.cs",
+              "ToolTip": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\BlogHelper\\GenerateToken.cs",
+              "RelativeToolTip": "BlogHelper\\GenerateToken.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T14:52:43.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MyDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\ModelEFCore\\MyDbContext.cs",
+              "RelativeDocumentMoniker": "ModelEFCore\\MyDbContext.cs",
+              "ToolTip": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\ModelEFCore\\MyDbContext.cs",
+              "RelativeToolTip": "ModelEFCore\\MyDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T06:41:57.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccountConfig.cs",
+              "DocumentMoniker": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\ModelEFCore\\AccountConfig.cs",
+              "RelativeDocumentMoniker": "ModelEFCore\\AccountConfig.cs",
+              "ToolTip": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\ModelEFCore\\AccountConfig.cs",
+              "RelativeToolTip": "ModelEFCore\\AccountConfig.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T06:39:29.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ModelEFCore.csproj",
+              "DocumentMoniker": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\ModelEFCore\\ModelEFCore.csproj",
+              "RelativeDocumentMoniker": "ModelEFCore\\ModelEFCore.csproj",
+              "ToolTip": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\ModelEFCore\\ModelEFCore.csproj",
+              "RelativeToolTip": "ModelEFCore\\ModelEFCore.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-23T06:37:12.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Account.cs",
+              "DocumentMoniker": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\ModelEFCore\\Account.cs",
+              "RelativeDocumentMoniker": "ModelEFCore\\Account.cs",
+              "ToolTip": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\ModelEFCore\\Account.cs",
+              "RelativeToolTip": "ModelEFCore\\Account.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T06:34:40.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WebBlog.csproj",
+              "DocumentMoniker": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\WebBlog\\WebBlog.csproj",
+              "RelativeDocumentMoniker": "WebBlog\\WebBlog.csproj",
+              "ToolTip": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\WebBlog\\WebBlog.csproj",
+              "RelativeToolTip": "WebBlog\\WebBlog.csproj",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAYAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-22T16:54:57.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "secrets.json",
+              "DocumentMoniker": "C:\\Users\\13762\\AppData\\Roaming\\Microsoft\\UserSecrets\\4178bbf4-daba-4ec6-a411-5bea66c94a43\\secrets.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\4178bbf4-daba-4ec6-a411-5bea66c94a43\\secrets.json",
+              "ToolTip": "C:\\Users\\13762\\AppData\\Roaming\\Microsoft\\UserSecrets\\4178bbf4-daba-4ec6-a411-5bea66c94a43\\secrets.json",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\4178bbf4-daba-4ec6-a411-5bea66c94a43\\secrets.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-22T16:56:10.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\WebBlog\\appsettings.json",
               "RelativeDocumentMoniker": "WebBlog\\appsettings.json",
               "ToolTip": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\WebBlog\\appsettings.json",
               "RelativeToolTip": "WebBlog\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAVAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-20T13:38:26.403Z"
+              "WhenOpened": "2024-06-20T13:38:26.403Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Account.cs",
-              "DocumentMoniker": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\WebBlog\\Model\\Account.cs",
-              "RelativeDocumentMoniker": "WebBlog\\Model\\Account.cs",
-              "ToolTip": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\WebBlog\\Model\\Account.cs",
-              "RelativeToolTip": "WebBlog\\Model\\Account.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-20T13:24:24.62Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\WebBlog\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "WebBlog\\Controllers\\LoginController.cs",
               "ToolTip": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\WebBlog\\Controllers\\LoginController.cs",
               "RelativeToolTip": "WebBlog\\Controllers\\LoginController.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAA4wBgAAAAIAAAA",
+              "ViewState": "AQIAADcAAAAAAAAAAAAuwD8AAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-20T12:17:09.048Z"
+              "WhenOpened": "2024-06-20T12:17:09.048Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -76,14 +180,14 @@
               "RelativeDocumentMoniker": "WebBlog\\Program.cs",
               "ToolTip": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\WebBlog\\Program.cs",
               "RelativeToolTip": "WebBlog\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABEAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-20T12:17:06.509Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "WebBlog.http",
               "DocumentMoniker": "C:\\Users\\13762\\Desktop\\BlogProject\\WebBlog\\WebBlog\\WebBlog.http",
               "RelativeDocumentMoniker": "WebBlog\\WebBlog.http",
@@ -91,7 +195,8 @@
               "RelativeToolTip": "WebBlog\\WebBlog.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-06-20T12:16:57.661Z"
+              "WhenOpened": "2024-06-20T12:16:57.661Z",
+              "EditorCaption": ""
             }
           ]
         }

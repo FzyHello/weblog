@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("4178bbf4-daba-4ec6-a411-5bea66c94a43")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebBlog")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61b057fbf50e22d92b41234d8f0b63e9cd18eb6e")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebBlog")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebBlog")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
