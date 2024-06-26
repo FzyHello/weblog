@@ -38,14 +38,14 @@
                   />
                 </el-row>
               </div>
-              <!-- 功能 -->
+              <!-- 功能按钮 -->
               <div class="blog-info-function">
                 <el-button :icon="Edit" @click="showComponent('Edit')" />
                 <el-button :icon="Share" @click="showComponent('Share')" />
                 <el-button :icon="Delete" @click="showComponent('Delete')" />
                 <el-button :icon="Service" @click="showComponent('Service')" />
               </div>
-              <!-- 功能区 -->
+              <!-- 功能展示 -->
               <BlogText
                 v-show="currentComponent === 'Edit'"
                 :textList="textList"
@@ -56,20 +56,8 @@
             </div>
           </el-col>
           <el-col :span="18">
-            <div class="blog-content">
-              <el-tabs
-                v-model="activeName"
-                class="demo-tabs"
-                @tab-click="handleClick"
-              >
-                <el-tab-pane label="近期发布" name="first"
-                  >近期发布</el-tab-pane
-                >
-                <el-tab-pane label="分类" name="second">分类</el-tab-pane>
-                <el-tab-pane label="标签" name="third">标签</el-tab-pane>
-                <el-tab-pane label="归档" name="fourth">归档</el-tab-pane>
-              </el-tabs>
-            </div>
+            <!-- 文章Tab -->
+            <blogTab></blogTab>
           </el-col>
         </el-row>
       </el-col>
@@ -85,11 +73,13 @@ import BlogText from "@/components/blogFunction/blogText.vue";
 import blogServer from "@/components/blogFunction/blogServer.vue";
 import blogSearch from "@/components/blogFunction/blogSearch.vue";
 import blogDel from "@/components/blogFunction/blogDel.vue";
+import blogTab from "@/components/blogTab/index.vue";
 
-const activeName = ref("first");
+// 头像
 const circleUrl = ref("");
-const currentComponent = ref("Edit");
+// 搜索
 let searchInfo = ref("");
+let currentComponent = ref("Edit");
 let textList = reactive([
   {
     name: "vue2+element ui+webpack",
@@ -98,10 +88,6 @@ let textList = reactive([
     name: "vue3+element plus+vite",
   },
 ]);
-
-function handleClick(tab) {
-  console.log(tab);
-}
 
 function showComponent(value) {
   currentComponent.value = value;
@@ -159,10 +145,6 @@ function showComponent(value) {
       justify-content: space-between;
       align-items: center;
     }
-  }
-  &-content {
-    height: 100%;
-    padding: 0 30px;
   }
 }
 </style>
