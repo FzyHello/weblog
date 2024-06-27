@@ -14,8 +14,12 @@
                   /></el-col>
                   <el-col :span="19">
                     <div class="blog-info-top-nameBox">
-                      <div class="blog-info-top-nameBox-name">Aimer</div>
-                      <div class="blog-info-top-nameBox-role">个人博客</div>
+                      <div class="blog-info-top-nameBox-name">
+                        {{ name }}
+                      </div>
+                      <div class="blog-info-top-nameBox-role">
+                        {{ gxqm }}
+                      </div>
                     </div></el-col
                   >
                 </el-row>
@@ -69,6 +73,7 @@
 <script setup name="Blog">
 import { Search, Edit, Share, Delete, Service } from "@element-plus/icons-vue";
 import { ref, reactive, defineComponent } from "vue";
+import { Post } from "@/service/baseService.ts";
 import BlogText from "@/components/blogFunction/blogText.vue";
 import blogServer from "@/components/blogFunction/blogServer.vue";
 import blogSearch from "@/components/blogFunction/blogSearch.vue";
@@ -79,6 +84,8 @@ import blogTab from "@/components/blogTab/index.vue";
 const circleUrl = ref("");
 // 搜索
 let searchInfo = ref("");
+let name = ref("Aimer");
+let gxqm = ref("个人博客");
 let currentComponent = ref("Edit");
 let textList = reactive([
   {
@@ -87,11 +94,46 @@ let textList = reactive([
   {
     name: "vue3+element plus+vite",
   },
+  {
+    name: "vue2+element ui+webpack",
+  },
+  {
+    name: "vue3+element plus+vite",
+  },
+  {
+    name: "vue2+element ui+webpack",
+  },
 ]);
+
+let userInfo = reactive({
+  uuid: "1",
+  user_Name: "123456",
+  password: "123456",
+});
 
 function showComponent(value) {
   currentComponent.value = value;
 }
+
+const sendPostRequest = async () => {
+  console.log("11111");
+  try {
+    const response = await Post("http://localhost:5214/Personal", userInfo);
+    console.log(response.data.remark);
+    const { remark: name, user_Autograph: gxqm } = response.data;
+    const response2 = await Post(
+      "http://localhost:5214/Article/article",
+      userInfo
+    );
+    for (let i = 0; i < response2.data.length; i++) {
+      textList[i].name = response2.data[i].article_Title;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+sendPostRequest();
 </script>
 
 <style lang="scss" scoped>
