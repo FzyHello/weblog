@@ -116,7 +116,6 @@ function showComponent(value) {
 }
 
 const sendPostRequest = async () => {
-  console.log("11111");
   try {
     const response = await Post("http://localhost:5214/Personal", userInfo);
     console.log(response.data.remark);
