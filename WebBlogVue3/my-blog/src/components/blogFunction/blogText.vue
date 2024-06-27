@@ -39,6 +39,9 @@ const props = defineProps({
       color: #333;
       font-size: 14px;
       border-radius: 8px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     &-item:hover {
       transition: all 0.5s ease 0s;
