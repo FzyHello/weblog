@@ -118,8 +118,8 @@ function showComponent(value) {
 const sendPostRequest = async () => {
   try {
     const response = await Post("http://localhost:5214/Personal", userInfo);
-    console.log(response.data.remark);
-    const { remark: name, user_Autograph: gxqm } = response.data;
+    name.value = response.data.remark;
+    gxqm.value = response.data.user_Autograph;
     const response2 = await Post(
       "http://localhost:5214/Article/article",
       userInfo
