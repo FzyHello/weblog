@@ -1,4 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 const instance: AxiosInstance = axios.create({
   baseURL: 'http://localhost:5214', // 设置基础URL
@@ -15,7 +17,7 @@ instance.interceptors.request.use(
     const token = localStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
-    }
+    } 
     return config;
   },
   (error) => {
@@ -31,6 +33,10 @@ instance.interceptors.response.use(
   },
   (error) => {
     // 对响应错误做一些处理
+    if (error.response?.status === 401) {
+      localStorage.removeItem('token');
+      router.push("/Blog");
+    }
     return Promise.reject(error);
   }
 );
