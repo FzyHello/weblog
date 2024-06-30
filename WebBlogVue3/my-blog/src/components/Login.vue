@@ -7,7 +7,7 @@
         </el-form>
         <el-form-item prop="username">
           <el-input
-            v-model="userInfo.username"
+            v-model="userInfo.user_name"
             placeholder="账号"
             prefix-icon="Avatar"
           />
@@ -41,16 +41,17 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 let userInfo = reactive({
-  username: "",
+  user_name: "",
   password: "",
 });
 
+
 function loginSubmit() {
-  // 账号 admin 密码 123456
-  Post("http://localhost:5214/Login", userInfo).then((res) => {
-    localStorage.setItem("token", res.data);
-  });
-  router.push("/Blog");
+  // 账号 admin 密码 123456
+  Post("http://localhost:5214/Login", userInfo).then((res) => {
+    localStorage.setItem("token", res);
+    router.push("/Blog");
+  });
 }
 </script>
 
