@@ -8,11 +8,11 @@
             <div class="blog-info">
               <!-- 个人信息 -->
               <div class="blog-info-top">
-                <el-row :gutter="30">
-                  <el-col :span="5">
-                    <el-avatar :size="40" :src="circleUrl"
+                <el-row :gutter="40">
+                  <el-col :span="5" style="padding-left: 30px">
+                    <el-avatar :size="45" src="../src/assets/img/xiongmao.png"
                   /></el-col>
-                  <el-col :span="19">
+                  <el-col :span="19" style="padding-left: 15px">
                     <div class="blog-info-top-nameBox">
                       <div class="blog-info-top-nameBox-name">
                         {{ name }}
@@ -87,29 +87,7 @@ let searchInfo = ref("");
 let name = ref("Aimer");
 let gxqm = ref("个人博客");
 let currentComponent = ref("Edit");
-let textList = reactive([
-  {
-    name: "vue2+element ui+webpack",
-  },
-  {
-    name: "vue3+element plus+vite",
-  },
-  {
-    name: "vue2+element ui+webpack",
-  },
-  {
-    name: "vue3+element plus+vite",
-  },
-  {
-    name: "vue2+element ui+webpack",
-  },
-]);
-
-let userInfo = reactive({
-  uuid: "1",
-  user_Name: "123456",
-  password: "123456",
-});
+let textList = reactive([]);
 
 function showComponent(value) {
   currentComponent.value = value;
@@ -117,19 +95,19 @@ function showComponent(value) {
 
 const sendPostRequest = async () => {
   try {
-    const response = await Post("http://localhost:5214/Personal", userInfo);
-    name.value = response.data.remark;
-    gxqm.value = response.data.user_Autograph;
-    const response2 = await Post(
-      "http://localhost:5214/Article/article",
-      userInfo
-    );
-    for (let i = 0; i < response2.data.length; i++) {
-      textList[i].name = response2.data[i].article_Title;
+    const response = await Post("http://localhost:5214/Personal");
+    name.value = response.remark;
+    gxqm.value = response.user_Autograph;
+    const response2 = await Post("http://localhost:5214/Article/article");
+    for (let i = 0; i < response2.length && i < 5; i++) {
+      textList.push({
+        name: response2[i].article_Title,
+      });
     }
   } catch (error) {
     console.error(error);
   }
+
 };
 
 sendPostRequest();

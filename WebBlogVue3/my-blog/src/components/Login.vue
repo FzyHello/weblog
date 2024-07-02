@@ -49,7 +49,7 @@ let userInfo = reactive({
 function loginSubmit() {
   // 账号 admin 密码 123456
   Post("http://localhost:5214/Login", userInfo).then((res) => {
-    localStorage.setItem("token", res);
+    localStorage.setItem("token",userInfo.user_name +"xxx"+ res);
     router.push("/Blog");
   });
 }

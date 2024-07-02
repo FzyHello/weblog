@@ -5,7 +5,7 @@
         <recent></recent>
       </el-tab-pane>
       <el-tab-pane label="分类" name="second">分类</el-tab-pane>
-      <el-tab-pane label="标签" name="third">标签</el-tab-pane>
+      <el-tab-pane label="收藏" name="third">收藏</el-tab-pane>
       <el-tab-pane label="归档" name="fourth">归档</el-tab-pane>
     </el-tabs>
   </div>

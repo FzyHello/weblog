@@ -8,7 +8,7 @@
     >
       <img
         class="blog-item-img"
-        src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+        :src="imageUrl"
         alt="Your Image"
       />
       <div class="blog-item-box">
@@ -26,30 +26,45 @@
 
 <script setup>
 import { reactive } from "vue";
+import { Post } from "@/service/baseService.ts";
+      const apiKey = '4df2ba3a98dd15521de2acdd8c8de015.8wC4lcuF1e2W9624';
+      const url = 'https://open.bigmodel.cn/api/paas/v4/images/generations';
+      const data = {
+        model: 'cogview-3',
+        prompt: "一只可爱的小猫咪",
+      };
+const textList = reactive([{
+  title: "222",
+        content: "222",
+        date: "222",
+        author: "222"
+}]);
+const myHeaders = {
+  'Authorization': '4df2ba3a98dd15521de2acdd8c8de015.8wC4lcuF1e2W9624',
+  'Custom-Header': 'custom_value',
+};
+const imageUrl =  '';
+const sendPostRequest = async () => {
+  try {
+    const response = await Post("http://localhost:5214/Article/article");
+    for (let i = 0; i < response.length; i++) {
+      textList.push({
+        title: response[i].article_Title,
+        content: response[i].article_Content,
+        date: response[i].create_Time,
+        author: response[i].article_Type
+      });
+    }
+    const response2 = await Post(url, data,myHeaders);
+      console.log(response2.data);
+      //console.log(response2);
+      imageUrl = response2.data.url;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-const textList = reactive([
-  {
-    title: "Vue2+element ui+webpack",
-    content:
-      "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
-    date: "2024-04-24",
-    author: "前端",
-  },
-  {
-    title: "Vue2+element ui+webpack",
-    content:
-      "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
-    date: "2024-04-24",
-    author: "前端",
-  },
-  {
-    title: "Vue2+element ui+webpack",
-    content:
-      "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
-    date: "2024-04-24",
-    author: "前端",
-  },
-]);
+sendPostRequest();
 </script>
 
 <style lang="scss" scoped>

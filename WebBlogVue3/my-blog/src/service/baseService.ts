@@ -13,12 +13,14 @@ const instance: AxiosInstance = axios.create({
 // 请求拦截器
 instance.interceptors.request.use(
   (config) => {
-    // 在请求发送之前做一些处理，例如添加 token
-    const token = localStorage.getItem('token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    } 
-    return config;
+        // 在请求发送之前做一些处理，例如添加 token
+        if (config.url !== 'https://open.bigmodel.cn/api/paas/v4/chat/completions') {
+          const token = localStorage.getItem('token');
+          if (token) {
+            config.headers.Authorization = `${token}`;
+          }
+        }
+        return config;
   },
   (error) => {
     return Promise.reject(error);
@@ -42,9 +44,15 @@ instance.interceptors.response.use(
 );
 
 // post 方法
-export const Post = async<T>(url: string, data?: T) => {
+export const Post = async<T>(url: string, data?: T, headers?: any) => {
   try {
-    const response = await instance.post(url, data);
+    const defaultHeaders = {
+      'Content-Type': 'application/json',
+    };
+    const finalHeaders = { ...defaultHeaders, ...headers };
+    const response = await instance.post(url, data, {
+      headers: finalHeaders,
+    });
     return response;
   } catch (error: any) {
     throw new Error(error.response?.data?.message || error.message);
