@@ -1,23 +1,39 @@
 <template>
-  <div class="blog">
-    <div
-      class="blog-item"
-      v-for="item in textList"
-      :key="item.title"
-      @click="showText()"
-    >
-      <img
-        class="blog-item-img"
-        :src="imageUrl"
-        alt="Your Image"
-      />
-      <div class="blog-item-box">
-        <div class="blog-item-box-title">{{ item.title }}</div>
-        <div class="blog-item-box-content">{{ item.content }}</div>
-        <div class="blog-item-box-author">
-          <el-icon><Calendar /></el-icon><span>{{ item.date }}</span>
-          <el-icon style="margin-left: 10px"><Collection /></el-icon
-          ><span>{{ item.author }}</span>
+  <div class="blogs">
+    <div v-if="selectedItem.title !== ''" class="blogs-detail">
+      <div class="blogs-detail-header">
+        <div class="blogs-detail-header-info">
+          <span>主页/文章/ {{ selectedItem.author }}</span>
+          <div class="blogs-detail-header-title">{{ selectedItem.title }}</div>
+          <div class="blogs-detail-header-details">
+            <span>日期: {{ selectedItem.date }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="blogs-detail-box">
+        <span>日期: {{ selectedItem.date }}</span>
+      </div>
+    </div>
+    <div v-else>
+      <div
+        class="blog-item"
+        v-for="item in textList"
+        :key="item.title"
+        @click="showText(item)"
+      >
+        <img
+          class="blog-item-img"
+          src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+          alt="Your Image"
+        />
+        <div class="blog-item-box">
+          <div class="blog-item-box-title">{{ item.title }}</div>
+          <div class="blog-item-box-content">{{ item.content }}</div>
+          <div class="blog-item-box-author">
+            <el-icon><Calendar /></el-icon><span>{{ item.date }}</span>
+            <el-icon style="margin-left: 10px"><Collection /></el-icon
+            ><span>{{ item.author }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -27,26 +43,31 @@
 <script setup>
 import { reactive } from "vue";
 import { Post } from "@/service/baseService.ts";
-      const apiKey = '4df2ba3a98dd15521de2acdd8c8de015.8wC4lcuF1e2W9624';
-      const url = 'https://open.bigmodel.cn/api/paas/v4/images/generations';
-      const data = {
-        model: 'cogview-3',
-        prompt: "一只可爱的小猫咪",
-      };
-const textList = reactive([{
-  title: "222",
-        content: "222",
-        date: "222",
-        author: "222"
-}]);
-const myHeaders = {
-  'Authorization': '4df2ba3a98dd15521de2acdd8c8de015.8wC4lcuF1e2W9624',
-  'Custom-Header': 'custom_value',
+
+
+
+const selectedItem = reactive({
+  title: '',
+  content: '',
+  date: '',
+  author: ''
+}); // 用于存储选中的文章详情项
+
+const showText = (item) => {
+  selectedItem.title = item.title;
+  selectedItem.content = item.content;
+  selectedItem.date = item.date;
+  selectedItem.author = item.author;
+
+  // 清空文章列表
+  textList.splice(0, textList.length);
 };
-const imageUrl =  '';
+
+const textList = reactive([]);
+
 const sendPostRequest = async () => {
   try {
-    const response = await Post("http://localhost:5214/Article/article");
+    const response = await Post('http://localhost:5214/Article/article');
     for (let i = 0; i < response.length; i++) {
       textList.push({
         title: response[i].article_Title,
@@ -55,10 +76,6 @@ const sendPostRequest = async () => {
         author: response[i].article_Type
       });
     }
-    const response2 = await Post(url, data,myHeaders);
-      console.log(response2.data);
-      //console.log(response2);
-      imageUrl = response2.data.url;
   } catch (error) {
     console.error(error);
   }
@@ -68,6 +85,52 @@ sendPostRequest();
 </script>
 
 <style lang="scss" scoped>
+.blogs {
+  &-detail {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    &-header {
+      background-color: #b2bad6;
+      border-radius: 10px;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+
+      &-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      &-details {
+        font-size: 14px;
+        color: #777;
+      }
+    }
+
+    &-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    &-box {
+      padding: 15px;
+
+      &-content {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+    }
+  }
+}
 .blog {
   height: 100%;
   &-item {
