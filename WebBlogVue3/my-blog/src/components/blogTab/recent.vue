@@ -11,8 +11,18 @@
         </div>
       </div>
       <div class="blogs-detail-box">
-        <span>日期: {{ selectedItem.date }}</span>
+        <div class="markdown-body" v-html="md.render(selectedItem.content)" ></div>
       </div>
+      <div class="table-of-contents">
+          <div class="toc-title">本文目录</div>
+          <!-- 遍历标题数组，每个标题独占一行 -->
+            <p v-for="(heading, index) in selectedItem.headings" :key="index">
+              <a :href="'#heading-' + index" class="custom-link">{{ heading }}</a>
+            </p>
+          <hr>
+          <p style="font-size: 15px;" ><Location style="  width: 18px; /* 调整图标的宽度 */height: 14px; /* 调整图标的高度 */" /> 回到顶部</p>
+          <p style="font-size: 15px;" ><ChatDotRound style="  width: 18px; /* 调整图标的宽度 */height: 12px; /* 调整图标的高度 */" />  参与讨论</p>
+        </div>
     </div>
     <div v-else>
       <div
@@ -41,10 +51,17 @@
 </template>
 
 <script setup>
+import { Search, Edit, Share, Delete, Service,Location,ChatDotRound } from "@element-plus/icons-vue";
 import { reactive } from "vue";
 import { Post } from "@/service/baseService.ts";
-
-
+import MarkdownIt from "markdown-it";
+import markdownItToc from "markdown-it-table-of-contents";
+//import TableOfContents from "@/components/blogTab/tableOfContents.vue";
+const md = new MarkdownIt()
+md.use(markdownItToc, {
+  includeLevel: [1, 2, 3], // 指定哪些标题级别需要包含在目录中
+  containerClass: 'table-of-contents' // 可选：自定义目录容器的 class
+});
 
 const selectedItem = reactive({
   title: '',
@@ -58,7 +75,22 @@ const showText = (item) => {
   selectedItem.content = item.content;
   selectedItem.date = item.date;
   selectedItem.author = item.author;
+  // Parse content to generate table of contents
+  const tokens = md.parse(selectedItem.content);
 
+    // Extract headings
+    const headings = [];
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i];
+    if (token.type === 'heading_open' && tokens[i + 1] && tokens[i + 1].type === 'inline') {
+      const headingText = tokens[i + 1].content;
+      headings.push(headingText);
+    }
+  }
+
+  // Update selectedItem with headings
+  selectedItem.headings = headings;
+  console.log(selectedItem.headings);
   // 清空文章列表
   textList.splice(0, textList.length);
 };
@@ -81,6 +113,7 @@ const sendPostRequest = async () => {
   }
 };
 
+
 sendPostRequest();
 </script>
 
@@ -97,6 +130,7 @@ sendPostRequest();
       border-radius: 10px;
       padding: 10px;
       border-bottom: 1px solid #ddd;
+      height: 150px;
 
       &-info {
         display: flex;
@@ -105,12 +139,14 @@ sendPostRequest();
 
       &-title {
         font-size: 24px;
+        margin-top: 20px;
         font-weight: bold;
         margin-bottom: 5px;
       }
 
       &-details {
         font-size: 14px;
+        margin-top: 25px;
         color: #777;
       }
     }
@@ -170,5 +206,124 @@ sendPostRequest();
       }
     }
   }
+}
+</style>
+<style lang="scss">
+@import 'github-markdown-css';
+
+/*//自己也可以再调整调整 (贡献一版 我们调整的一版样式)*/
+.markdown-body {
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 200px;
+  max-width: 900px;
+  font-size: 15px;
+  h2 {
+    font-size: 25px;
+    margin: 1em 0 15px;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+  }
+  h3 {
+    font-size: 20px;
+    margin: 22px 0 16px;
+  }
+  h4 {
+    font-size: 1px;
+    margin: 20px 0 16px;
+  }
+  h5 {
+    font-size: 12px;
+    margin: 16px 0 16px;
+    font-weight: 700;
+  }
+  p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #666666;
+    margin-top: 0px;
+    margin: 8px 0;
+    margin: 14px 0 14px;
+  }
+  pre {
+    background-color: #eee;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    margin: 12px 0 12px;
+  }
+  blockquote {
+    margin-bottom: 8px;
+    margin-top: 8px;
+    margin: 14px 0 14px;
+    background-color: #eee;
+    padding: 16px 16px;
+  }
+  tr {
+    background-color: #f5f5f5;
+  }
+  code {
+    background-color: #eee;
+  }
+  ul,
+  ol,
+  li {
+    list-style: unset;
+    font-size: 14px;
+    line-height: 20px;
+    color: #666666;
+    margin-top: 0px;
+    margin: 8px 0;
+  }
+  blockquote {
+    border-color: #48b6e2;
+  }
+  table {
+    display: table;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+</style>
+<style scoped>
+.content-wrapper {
+  display: flex;
+  align-items: flex-start; /* 顶部对齐 */
+}
+
+.blogs-detail-box {
+  flex: 1; /* 自动填充剩余空间 */
+  margin-right: 20px; /* 可根据需要调整右侧间距 */
+}
+
+.table-of-contents {
+  position: fixed; /* 或者 absolute，根据需求选择 */
+  top: 50px; /* 调整距离顶部的位置 */
+  right: 10ch; /* 调整距离右侧的位置 */
+  width: 200px; /* 调整目录宽度 */
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1000; /* 确保目录在其他内容上方显示 */
+}
+
+.toc-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+
+
+
+
+
+.custom-link {
+  text-decoration: none; /* 去掉下划线 */
+  color: #488eda; /* 设置为浅蓝色 */
+  right: inherit;
+  margin-left: 0px;
+  font-size: 15px;;
 }
 </style>
