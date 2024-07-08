@@ -12,6 +12,7 @@
       </div>
       <div class="blogs-detail-box">
         <div class="markdown-body" v-html="md.render(selectedItem.content)" ></div>
+        <comment :comment="comment" />
       </div>
       <div class="table-of-contents">
           <div class="toc-title">本文目录</div>
@@ -56,6 +57,7 @@ import { reactive } from "vue";
 import { Post } from "@/service/baseService.ts";
 import MarkdownIt from "markdown-it";
 import markdownItToc from "markdown-it-table-of-contents";
+import comment from "@/components/blogTab/comment.vue"
 //import TableOfContents from "@/components/blogTab/tableOfContents.vue";
 const md = new MarkdownIt()
 md.use(markdownItToc, {

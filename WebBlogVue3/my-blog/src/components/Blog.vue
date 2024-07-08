@@ -91,6 +91,7 @@ let textList = reactive([]);
 
 function showComponent(value) {
   currentComponent.value = value;
+  window.location.reload(); 
 }
 
 const sendPostRequest = async () => {

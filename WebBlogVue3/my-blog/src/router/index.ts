@@ -13,6 +13,11 @@ const routes = [
     path: '/Blog',
     component: () => import('@/components/Blog.vue'),
   } 
+  ,
+  {
+    path: '/Edit',
+    component: () => import('@/components/Blog.vue'),
+  } 
 ];
 
 const router = createRouter({
